@@ -10,6 +10,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'YankRing.vim'
+Plugin 'ervandew/supertab'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " ===END of VUNDLE===
@@ -38,7 +42,7 @@ set ruler
 set laststatus=2
 
 let mapleader = ","
-
+let g:SuperTabDefaultCompletionType="context" 
 
 " for search 
 set ignorecase
@@ -52,6 +56,14 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 
+"""""Airline""""
+if has('gui_running')
+    let g:airline_theme = "solarized"
+else
+    let g:airline_theme = "molokai"
+    endif
+let g:airline_powerline_fonts = 1
+
 " learn to use vim correctly :)
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -64,10 +76,11 @@ nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-h> :tabp<CR> 
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+nnoremap <C-l> :tabn<CR>
+
 
 nnoremap ; :
 au FocusLost * :wa
