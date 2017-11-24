@@ -14,6 +14,9 @@ Plugin 'YankRing.vim'
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'kshenoy/vim-signature'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " ===END of VUNDLE===
@@ -42,7 +45,7 @@ set ruler
 set laststatus=2
 
 let mapleader = ","
-let g:SuperTabDefaultCompletionType="context" 
+let g:SuperTabDefaultCompletionType="context"
 
 " for search 
 set ignorecase
@@ -64,11 +67,42 @@ else
     endif
 let g:airline_powerline_fonts = 1
 
-" learn to use vim correctly :)
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+"""""Indent Guide"""""
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+""""vim-signature""""
+let g:SignatureMap = {
+    \ 'Leader'             :  "m",
+    \ 'PlaceNextMark'      :  "m,",
+    \ 'ToggleMarkAtLine'   :  "m.",
+    \ 'PurgeMarksAtLine'   :  "m-",
+    \ 'DeleteMark'         :  "dm",
+    \ 'PurgeMarks'         :  "mda",
+    \ 'PurgeMarkers'       :  "m<BS>",
+    \ 'GotoNextLineAlpha'  :  "']",
+    \ 'GotoPrevLineAlpha'  :  "'[",
+    \ 'GotoNextSpotAlpha'  :  "`]",
+    \ 'GotoPrevSpotAlpha'  :  "`[",
+    \ 'GotoNextLineByPos'  :  "]'",
+    \ 'GotoPrevLineByPos'  :  "['",
+    \ 'GotoNextSpotByPos'  :  "mn",
+    \ 'GotoPrevSpotByPos'  :  "mp",
+    \ 'GotoNextMarker'     :  "[+",
+    \ 'GotoPrevMarker'     :  "[-",
+    \ 'GotoNextMarkerAny'  :  "]=",
+    \ 'GotoPrevMarkerAny'  :  "[=",
+    \ 'ListLocalMarks'     :  "ms",
+    \ 'ListLocalMarkers'   :  "m?"
+    \ }
+
+
+""" learn to use vim correctly :)"""
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
 "inoremap <up> <nop>
 "inoremap <down> <nop>
 "inoremap <left> <nop>
@@ -76,14 +110,17 @@ nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <C-h> :tabp<CR> 
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-nnoremap <C-l> :tabn<CR>
+nnoremap <C-h> <C-w>h 
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
+
+nnoremap gr :tabp<CR> 
 
 nnoremap ; :
 au FocusLost * :wa
 
 imap <C-d> <C-o>diw
 inoremap jj <ESC>
+inoremap JJ <ESC>
