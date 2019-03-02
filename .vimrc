@@ -1,77 +1,91 @@
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " ===VUNDLE===
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+ set rtp+=~/.vim/bundle/Vundle.vim
+ call vundle#begin()
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'YankRing.vim'
-Plugin 'ervandew/supertab'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kshenoy/vim-signature'
-call vundle#end()            " required
-filetype plugin indent on    " required
-" ===END of VUNDLE===
+ Plugin 'scrooloose/nerdtree'
+ Plugin 'scrooloose/nerdcommenter'
+ Plugin 'Xuyuanp/nerdtree-git-plugin'
+ Plugin 'altercation/vim-colors-solarized'
+ Plugin 'YankRing.vim'
+ Plugin 'ervandew/supertab'
+ Plugin 'vim-airline/vim-airline'
+ Plugin 'vim-airline/vim-airline-themes'
+ Plugin 'jiangmiao/auto-pairs'
+ "Plugin 'nathanaelkane/vim-indent-guides'
+ Plugin 'kshenoy/vim-signature'
+ Plugin 'pangloss/vim-javascript'
+ Plugin 'mxw/vim-jsx'
+ "Plugin 'mattn/emmet-vim'
+ "Plugin 'w0rp/ale'            " syntax check
+ call vundle#end()            " required
+ filetype plugin indent on    " required
+ " ===END of VUNDLE===
 
-syntax enable
-set background=dark
-colorscheme solarized
+ syntax enable
+ set background=dark
+ colorscheme solarized
 
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set encoding=utf-8
-set cursorline
-set relativenumber
-set number
-syntax on
-set colorcolumn=80
-set autoindent
-set wrap
-set textwidth=79
-set formatoptions=qrn1
-set backspace=indent,eol,start
-set ruler
-set laststatus=2
+ set tabstop=4
+ set shiftwidth=4
+ set softtabstop=4
+ set expandtab
+ set encoding=utf-8
+ set cursorline
+ set relativenumber
+ set number
+ syntax on
+ set colorcolumn=80
+ set autoindent
+ set wrap
+ set textwidth=79
+ set formatoptions=qrn1
+ set backspace=indent,eol,start
+ set ruler
+ set laststatus=2
+:set pastetoggle=<F12>
 
-let mapleader = ","
-let g:SuperTabDefaultCompletionType="context"
+ let mapleader = ","
+ let g:SuperTabDefaultCompletionType="context"
 
-" for search 
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
+"for emmet
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
-nnoremap <leader><space> :noh<CR>
-nnoremap <tab> %
-vnoremap <tab> %
+"""for search"""
+ set ignorecase
+ set smartcase
+ set gdefault
+ set incsearch
+ set showmatch
+ set hlsearch
 
-"""""Airline""""
-if has('gui_running')
-    let g:airline_theme = "solarized"
+ nnoremap <leader><space> :noh<CR>
+ nnoremap <tab> %
+ vnoremap <tab> %
+
+ """"Airline""""
+ if has('gui_running')
+     let g:airline_theme = "solarized"
 else
-    let g:airline_theme = "molokai"
-    endif
+     let g:airline_theme = "molokai"
+     endif
 let g:airline_powerline_fonts = 1
 
-"""""Indent Guide"""""
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+"""Indent Guide"""
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_start_level=2
+"let g:indent_guides_guide_size=1
+":nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 """"vim-signature""""
 let g:SignatureMap = {
     \ 'Leader'             :  "m",
@@ -100,13 +114,13 @@ let g:SignatureMap = {
 
 """ learn to use vim correctly :)"""
 "nnoremap <up> <nop>
-"nnoremap <down> <nop>
+""nnoremap <down> <nop>
 "nnoremap <left> <nop>
-"nnoremap <right> <nop>
+""nnoremap <right> <nop>
 "inoremap <up> <nop>
-"inoremap <down> <nop>
+""inoremap <down> <nop>
 "inoremap <left> <nop>
-"inoremap <right> <nop>
+""inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
